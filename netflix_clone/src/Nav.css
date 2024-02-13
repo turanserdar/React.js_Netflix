@@ -1,0 +1,53 @@
+.nav {
+
+    position: fixed;
+    /* This sets the element's position to be fixed, meaning it will stay in a fixed position even when the page is scrolled. */
+    top: 0;
+    /* This sets the distance of the element's top edge from the top edge of the page. top: 0; means the element will be positioned at the very top of the page. */
+    padding: 20px;
+    /* This sets the padding around the content of the element. In this case, there will be a 20-pixel padding between the content of the element and other content around it. */
+
+
+    width: 100%;
+    height: 30px;
+    z-index: 1;
+    /* This sets the z-index of the element, determining its stack order. Elements with higher z-index values appear above those with lower values. */
+
+    /* Animations */
+    transition-timing-function: ease-in;
+    /* This specifies the timing function for the transition. ease-in creates a slow start and accelerates at the end, providing a smooth animation effect. */
+    transition: all 0.5s;
+    /* This adds a transition effect to all properties (position, top, padding, width, height, z-index) of the element. 0.5s specifies the duration of the transition as 0.5 seconds. This creates a transition effect that takes 0.5 seconds when the style properties of the element change. */
+}
+
+.nav__contents {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__logo {
+
+    position: fixed;
+    top: 10px;
+    left: 0;
+    width: 80px;
+    object-fit: contain;
+    padding-left: 20px;
+    cursor: pointer;
+
+
+}
+
+.nav__avatar {
+
+    position: fixed;
+    right: 20px;
+    width: 30px;
+    cursor: pointer;
+
+}
+
+.nav__black {
+    background-color: #111;
+}

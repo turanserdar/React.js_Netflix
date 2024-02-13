@@ -1,0 +1,12 @@
+{
+  "name": "react.js_netflix",
+  "version": "1.0.0",
+  "description": "Stripe Checkout &amp; Webhooks, Redux, Firestore, Google Auth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
