@@ -1,0 +1,24 @@
+.row{
+
+    color:white ;
+    margin-left: 20px;
+
+
+}
+
+.row__posters{
+
+
+    display: flex;
+
+    /* Hides the appearance of vertically (non-horizontal) overflowing content. If the content exceeds the available space, it is clipped and hidden. */
+    overflow-y: hidden;
+
+    /* Makes horizontally (non-vertical) overflowing content visible and adds a horizontal scrollbar. This indicates that the content is horizontally scrollable. */
+    overflow-x: scroll;
+    padding: 20px;
+}
+
+.row_poster{
+    max-height: 100px;
+}
