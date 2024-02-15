@@ -1,7 +1,7 @@
 .loginScreen {
     position: relative;
     height: 100%;
-    background: url("https://assets.nflxext.com//ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg") center no repeat;
+    background: url("https://assets.nflxext.com//ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg") center no-repeat;
     background-size: cover;
 
 }
@@ -13,12 +13,12 @@
     width: 150px;
     object-fit: contain;
     padding-left: 20px;
-    font-size: 1rem;
+    /* font-size: 1rem;
     color: #fff;
     background-color: #e50914;
     font-weight: 600;
     border: none;
-    cursor: pointer;
+    cursor: pointer; */
 }
 
 .loginScreen__button {
@@ -27,6 +27,9 @@
     right: 20px;
     top: 20px;
     padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #e50914;
 
 
 }
@@ -38,7 +41,7 @@
 
 }
 
-.loginScreen__body>h2 {
+.loginScreen__body > h2 {
     font-size: 2rem;
     font-weight: 400;
     margin-bottom: 30px;
@@ -72,10 +75,10 @@
     /* Sets the z-index of the element to 1. The z-index property controls the stacking order of elements. A higher z-index value means the element will appear on top of other elements. */
     z-index: 1;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4);
     background-image: linear-gradient(to top,
             rgba(0, 0, 0, 0.8)0,
-            rgba(0, 0, 0, 0) 60,
+            rgba(0, 0, 0, 0) 60%,
             rgba(0, 0, 0, 0.8) 100%);
 
 }
@@ -84,7 +87,7 @@
 
     padding: 10px;
     outline-width: 0;
-    height: 309px;
+    height: 30px;
     width: 30%;
     border: none;
     max-width: 600px;

@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import LoginScreen from './LoginScreen';
 
-const user=null;
+const user='null';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,10 +24,10 @@ function App() {
   return (
     <div className="app">
  
- {!user ? <LoginScreen/> : <RouterProvider router={router} />
+ {!user ? <LoginScreen/> : <RouterProvider router={router}> <HomeScreen/> </RouterProvider>
   
  }
-      
+     
       
 
     </div>
