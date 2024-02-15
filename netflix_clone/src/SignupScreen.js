@@ -1,13 +1,13 @@
 import "./SignupScreen.css";
 import {auth} from './firebase';
 import { useRef } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 
 
 
 
 export default function SignupScreen() {
-    const auth = getAuth();
+    // const auth = getAuth();
 
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
@@ -48,10 +48,23 @@ export default function SignupScreen() {
     };
 
     const signIn = (e) => {
-
         e.preventDefault();
 
-    }
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        
+        signInWithEmailAndPassword(email, password).then((userCredential) =>{
+
+            const user=userCredential.user;
+            console.log(user);
+            
+        }).catch((error) => {
+
+            const errorCode =error.code;
+            const errorMessage=error.message;
+        });
+
+    };
 
     return <div className="signupScreen">
 
