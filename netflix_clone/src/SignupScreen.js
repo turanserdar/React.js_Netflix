@@ -1,5 +1,6 @@
 import "./SignupScreen.css";
 import { auth } from "./firebase";
+import { useRef } from "react";
 
 
 export default function SignupScreen()
@@ -11,7 +12,16 @@ export default function SignupScreen()
 
         e.preventDefault();
 
-        auth.createUserWithEmailAndPassword()
+        auth.createUserWithEmailAndPassword(
+            emailRef.current.value,  
+            passwordRef.current.value).then((authUser)=>{
+
+                    console.log(authUser)
+
+            }).catch(error=>{alert(error.message);
+            });
+
+        
     };
 
     const signIn = (e)=>{
