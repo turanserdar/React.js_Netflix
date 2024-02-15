@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import "./LoginScreen.css";
+import SignupScreen from "./SignupScreen";
 
 export default function LoginScreen() {
 
