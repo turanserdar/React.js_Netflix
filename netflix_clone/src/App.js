@@ -36,6 +36,7 @@ function App() {
     
     });
     
+    //whenever you use useEffect you should have clean up function.That means our performance is not gonna be effected.
     return unsubscribe;
     
     
