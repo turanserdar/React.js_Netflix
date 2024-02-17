@@ -46,7 +46,7 @@ function App() {
           );
       } else {
         //Logged out
-        dispatch(logout);
+        dispatch(logout());
       }
 
     });
@@ -55,7 +55,7 @@ function App() {
     return unsubscribe;
 
 
-  }, []);
+  }, [dispatch]);
 
 
   return (
