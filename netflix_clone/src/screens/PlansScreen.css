@@ -27,3 +27,9 @@
 
 
 }
+
+.planScreen__plan--disabled>button{
+
+    background-color: gray !important;
+
+}

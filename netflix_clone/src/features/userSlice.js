@@ -1,10 +1,10 @@
 import {createSlice } from '@reduxjs/toolkit';
 
 const initialState={
-  user:"null"
+  user:null
 }
 
-export const userSlice = createSlice({
+ const userSlice = createSlice({
   name:'user',
   initialState,
   reducers: {
@@ -15,7 +15,7 @@ export const userSlice = createSlice({
       //Therefore, the statement state.user = action.payload; assigns the data carried by a Redux action, in this case, updated user information, to the user field in the Redux store. This kind of structure is commonly used in Redux to update the overall application state.
       state.user=action.payload;
     },
-    logout: (state) => {
+    logout:(state) => {
       state.user =null;
     },
   },

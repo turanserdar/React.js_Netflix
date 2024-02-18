@@ -2,11 +2,37 @@ import { useEffect, useState } from "react";
 import "./PlansScreen.css";
 import db from "../firebase.js";
 import { selectUser } from "../features/userSlice.js";
-import {loadStripe} from "@stripe/stripe.js"
+import {loadStripe} from "@stripe/stripe-js"
+import { useSelector } from 'react-redux';
 
 export default function PlansScreen() {
   const [products, setProducts] = useState([]);
-  const user=userSelector(selectUser);
+  const user = useSelector(selectUser);
+  const[subscription, setSubscription] = useState(null);
+
+  useEffect(() => {
+if(user && user.uid){db.collection("customers")
+.doc(user.uid)
+.collection("subscription")
+.get()
+.then((querySnapshot) => {
+  querySnapshot.forEach(async (subscription)=>{
+
+    setSubscription({
+      role: subscription.data().role,
+      current_period_end: subscription.data().current_period_end.seconds,
+      current_period_start: subscription.data().current_period_start.seconds,
+    });
+
+  });
+})
+.cath(error=>{
+  console.error("Error fetching subscription", error);
+})}
+    
+
+  }, [user]);
+
 
   useEffect(() => {
     db.collection("products") //Provides access to the "products" collection in Firestore.
@@ -31,17 +57,18 @@ export default function PlansScreen() {
             };
           });
         });
+        setProducts(products);
       });
-    setProducts(products);
+   
   }, []);
 
   console.log(products);
+  console.log(subscription);
 
   const loadCheckout = async (priceId) => {
 
 
-    const docRef= await db.collection('customers')
-    .doc(user.uid).collection("checkout_sessions")
+    const docRef= await db.collection("customers").doc(user.uid).collection("checkout_sessions")
     .add({
 
       price:priceId,
@@ -52,7 +79,7 @@ export default function PlansScreen() {
 
     docRef.onSnapshot(async(snap) => {
 
-      const {error, sessionId} =snap.data();
+      const { error, sessionId } =snap.data();
 
       if(error)
       {
@@ -61,7 +88,10 @@ export default function PlansScreen() {
 
       if(sessionId)
       {
-        const stripe= await loadStripe()
+        const stripe= await loadStripe('pk_test_51OkrcgDzXZLfcrTblx2OkMXsCslmMYBZxX6OrX347BPhwMWAU2Jbrdizbd4BrXgj9xsrkHolCYX869vMugsV1L1G00gZ6BQTZn');
+
+        stripe.redirectToCheckout({ sessionId });
+
       }
 
     })
@@ -70,17 +100,31 @@ export default function PlansScreen() {
 
   return (
     <div className="plansScreen">
+      <br/>
+
+   {subscription && (
+   <p>
+    Renewal date: {" "}
+    {new Date(
+      subscription?.current_period_end*1000).toLocalDateString()}</p>
+   )}
+
       {Object.entries(products).map(([productId, productData]) => {
         //add some logic to check if the user`s subscription is active...
 
+        const isCurrentPackage = productData.name?.toLowerCase().inclueds(subscription?.role);
         return (
-          <div className="planScreen__plan">
+          <div 
+          key={productId}
+          className={`${isCurrentPackage &&
+            "planScreen__plan--disabled"} "planScreen__plan"}`}>
+
             <div className="planScreen__info">
               <h5>{productData.name}</h5>
               <h6>{productData.description}</h6>
             </div>
-            <button onClick={() => loadCheckout(productData?.prices?.priceId)}>
-              Subscribe
+            <button onClick={() => isCurrentPackage && loadCheckout(productData?.prices?.priceId)}>
+              {!isCurrentPackage ? 'Current Package' : 'Subscribe'}
             </button>
           </div>
         );
