@@ -1,12 +1,14 @@
 import {createSlice } from '@reduxjs/toolkit';
 
-const initialState={
-  user:null
-}
+// const initialState={
+//   user:null
+// }
 
  const userSlice = createSlice({
   name:'user',
-  initialState,
+  initialState:{
+    user:null,
+  },
   reducers: {
 
     login:(state, action) => {
@@ -28,10 +30,12 @@ const initialState={
 
 // It takes state as a parameter, representing the current state of the Redux store.
 // The function returns the value of the user field inside the state. This allows access to the user field of the user Slice within the state
-export const selectUser = (state) => state.user;
+export const selectUser = (state) => state.user.user;
 
+const userReducer= userSlice.reducer;
 
 // This code exports the reducer of a Redux Slice created with Redux Toolkit or Redux. Slices typically include an initial state and actions to update that state. Within a Slice created with the createSlice function, there are actions and a reducer.
 // This code exports the reducer used to update the state of the Redux store. If you want to use this reducer in another file, you can import it and use it to update the state of your Redux store. 
+// export default userSlice.reducer;
 
-export default userSlice.reducer;
+export default userReducer;

@@ -1,7 +1,7 @@
 // import firebase from './firebase';
 import { initializeApp } from 'firebase/app';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore } from"@firebase/firestore"
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {

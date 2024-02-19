@@ -8,7 +8,8 @@ import PlansScreen from "./PlansScreen";
 
 export default function ProfileScreen() {
 
-    const user = useSelector(selectUser);
+    const user = useSelector(state=>state.user);
+    console.log(user);
     
     
     return (
@@ -27,8 +28,8 @@ export default function ProfileScreen() {
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" />
                 
                 <div className="profileScreen__details">
-
-                    {/* <h2>{user.email}</h2> */}
+                   
+                    <h2>{user.email}</h2>
 
                     <div className="profileScreen__plans">
 
