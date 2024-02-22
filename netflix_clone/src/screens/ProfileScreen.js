@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { auth } from "../firebase";
 import PlansScreen from "./PlansScreen";
+import { getAuth} from "firebase/auth";
+
 
 
 export default function ProfileScreen() {

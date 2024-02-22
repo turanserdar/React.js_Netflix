@@ -61,7 +61,7 @@ function App() {
   return (
     <div className="app">
 
-      {user ? <LoginScreen /> : <RouterProvider router={router}> <HomeScreen /> </RouterProvider>
+      {!user ? <LoginScreen /> : <RouterProvider router={router}> <HomeScreen /> </RouterProvider>
 
       }
 

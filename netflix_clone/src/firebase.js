@@ -1,8 +1,9 @@
-// import firebase from './firebase';
+import React from 'react'; 
 import { initializeApp } from 'firebase/app';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-import { getFirestore } from"@firebase/firestore"
+import { getFirestore } from 'firebase/firestore/lite';
 import { getAuth } from "firebase/auth";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyB4E4OI9VT0JFBF1_k-40rja2kysBhLeK4",
@@ -11,14 +12,13 @@ const firebaseConfig = {
   projectId: "netflix-clone-cbb03",
   storageBucket: "netflix-clone-cbb03.appspot.com",
   messagingSenderId: "430506717005",
-  appId: "1:430506717005:web:a465f9731cd2ee64909104"
- 
+  appId: "1:430506717005:web:a465f9731cd2ee64909104",
+  measurementId: "G-2CF0RRLNLF"
 };
-
 const firebaseApp= initializeApp(firebaseConfig);
 // const db =firebaseApp.firestore();
 const db=getFirestore(firebaseApp);
 const auth=getAuth(firebaseApp);
 
-export {auth}
+export { auth };
 export default db;

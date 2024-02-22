@@ -1,4 +1,4 @@
-.planScreen__plan{
+.plansScreen__plan{
 
     display: flex;
     justify-content: space-between;
@@ -8,13 +8,13 @@
 
 }
 
-.planScreen__plan:hover{
+.plansScreen__plan:hover{
 
     opacity: 1;
 }
 
 
-.planScreen__plan > button{
+.plansScreen__plan > button{
 
         padding: 10px 20px;
         font-size: 1rem;
@@ -28,7 +28,7 @@
 
 }
 
-.planScreen__plan--disabled>button{
+.plansScreen__plan--disabled>button{
 
     background-color: gray !important;
 
